@@ -30,8 +30,8 @@ public class Offer implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "course_id")
 	private Course course;
-
-	@OneToMany(mappedBy = "offer")
+	
+	@OneToMany
 	private List<Resource> resource = new ArrayList<>();
 
 	public Offer() {
