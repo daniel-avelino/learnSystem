@@ -27,11 +27,11 @@ public class Section implements Serializable {
 	private Integer position;
 	private String imgUri;
 
-	@ManyToOne
-	@JoinColumn(name = "resource_id")
+	@OneToMany(mappedBy = "section")
 	private Resource resource;
 
-	@OneToMany(mappedBy = "section")
+	@ManyToOne
+	@JoinColumn(name = "lesson_id")
 	private List<Lesson> lesson = new ArrayList<>();
 
 	public Section() {

@@ -1,0 +1,18 @@
+package com.learnsystem.entities;
+
+public class EnrollmentPK {
+
+	private User user;
+	private Offer offer;
+	
+	public EnrollmentPK() {
+	}
+
+	public EnrollmentPK(User user, Offer offer) {
+		this.user = user;
+		this.offer = offer;
+	}
+	
+	
+
+}

@@ -1,0 +1,8 @@
+package com.learnsystem.entities;
+
+public class EnrollmentPK {
+
+	private User user;
+	private Offer offer;
+
+}

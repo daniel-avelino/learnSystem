@@ -14,8 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_section")
-public class Section implements Serializable {
+@Table(name = "tb_resource")
+public class Resource implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -26,23 +26,25 @@ public class Section implements Serializable {
 	private String description;
 	private Integer position;
 	private String imgUri;
+	private ResourceType type;
 
 	@ManyToOne
-	@JoinColumn(name = "resource_id")
-	private Resource resource;
+	@JoinColumn(name = "offer_id")
+	private Offer offer;
 
 	@OneToMany(mappedBy = "section")
-	private List<Lesson> lesson = new ArrayList<>();
+	private List<Section> section = new ArrayList<>();
 
-	public Section() {
+	public Resource() {
 	}
 
-	public Section(Long id, String title, String description, Integer position, String imgUri) {
+	public Resource(Long id, String title, String description, Integer position, String imgUri, ResourceType type) {
 		this.id = id;
 		this.title = title;
 		this.description = description;
 		this.position = position;
 		this.imgUri = imgUri;
+		this.type = type;
 	}
 
 	public Long getId() {
@@ -83,6 +85,14 @@ public class Section implements Serializable {
 
 	public void setImgUri(String imgUri) {
 		this.imgUri = imgUri;
+	}
+
+	public ResourceType getType() {
+		return type;
+	}
+
+	public void setType(ResourceType type) {
+		this.type = type;
 	}
 
 }
